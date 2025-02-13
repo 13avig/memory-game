@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-blue-100">
-      {/* <h1 className="text-4xl font-bold text-blue-800 mb-6">
-        UC Berkeley Memory Game
-      </h1> */}
       <Link to="/game">
         <button className="px-6 py-3 bg-blue-600 text-white text-lg rounded-lg shadow-lg hover:bg-blue-700">
           Start Game

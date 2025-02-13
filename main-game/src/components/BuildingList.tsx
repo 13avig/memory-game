@@ -4,15 +4,17 @@ interface BuildingListProps {
   
   export default function BuildingList({ correctBuildings }: BuildingListProps) {
     return (
-      <div className="p-4 bg-gray-100 rounded-lg shadow">
-        <h2 className="text-lg font-bold">Buildings Found:</h2>
-        <ul>
-          {correctBuildings.map((name, index) => (
-            <li key={index} className="text-green-600 font-semibold">
-              {name}
-            </li>
+      <div>
+        <h2 className="text-2xl font-['Poppins'] font-bold mb-4 mt-38">
+          {correctBuildings.length} BUILDINGS
+        </h2>
+        <div className="space-y-3">
+          {correctBuildings.map((building, index) => (
+            <div key={index} className="flex items-center">
+              <span className="font-['Poppins'] text-sm">{building}</span>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     );
   }

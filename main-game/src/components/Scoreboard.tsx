@@ -5,13 +5,14 @@ interface ScoreboardProps {
   }
   
   export default function Scoreboard({ correctBuildings }: ScoreboardProps) {
-    console.log(buildingsData);
-    const totalBuildings = buildingsData.length; // Adjust based on total dataset
-    const progress = (correctBuildings.length / totalBuildings) * 100;
+    const totalBuildings = 60; // Update this with your total number of buildings
+    const percentage = ((correctBuildings.length / totalBuildings) * 100).toFixed(2);
   
     return (
-      <div className="mb-4 p-4 bg-gray-100 rounded-lg shadow">
-        <h2 className="text-lg font-bold">Progress: {progress.toFixed(2)}%</h2>
+      <div className="mb-6">
+        <p className="text-4xl font-bold font-['Poppins'] mb-2">
+          {percentage}% <span className="text-xl text-black-600 font-['Poppins'] mt-1">buildings found</span>
+        </p>
       </div>
     );
   }
