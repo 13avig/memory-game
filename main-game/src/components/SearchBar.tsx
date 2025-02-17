@@ -2,20 +2,13 @@ import { useState } from "react";
 
 interface SearchBarProps {
   onGuess: (buildingName: string) => boolean;
+  onReset: () => void;
   className?: string;
 }
 
-export default function SearchBar({ onGuess, className }: SearchBarProps) {
+export default function SearchBar({ onGuess, onReset, className }: SearchBarProps) {
   const [value, setValue] = useState('');
   const [isShaking, setIsShaking] = useState(false);
-  const [correctBuildings, setCorrectBuildings] = useState<string[]>([]);
-
-  // Add reset game handler
-  const handleReset = () => {
-    if (window.confirm('Are you sure you want to start over? All progress will be lost.')) {
-      setCorrectBuildings([]);
-    }
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,7 +52,7 @@ export default function SearchBar({ onGuess, className }: SearchBarProps) {
       />
       <button 
         type="button"
-        onClick={handleReset}
+        onClick={onReset}
         className="ml-2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors"
         title="Reset Game"
       >

@@ -4,6 +4,7 @@ import Map from "../components/Map";
 import Scoreboard from "../components/Scoreboard";
 import BuildingList from "../components/BuildingList";
 import buildingsData from "../data/buildings.json"; // Import buildings list
+import CoverScreen from "../components/CoverScreen";
 
 // Add this helper function to calculate Levenshtein distance
 function levenshteinDistance(str1: string, str2: string): number {
@@ -27,6 +28,7 @@ function levenshteinDistance(str1: string, str2: string): number {
 }
 
 export default function Game() {
+  const [showCover, setShowCover] = useState(true);
   const [correctBuildings, setCorrectBuildings] = useState<string[]>([]);
   const buildings = buildingsData.map((b) => b.name.toLowerCase()); // Store names in lowercase for validation
 
@@ -43,14 +45,67 @@ export default function Game() {
   
   // Add this constant with acceptable alternative names
   const buildingAliases: BuildingAliases = {
-    "Wheeler Hall": ["wheeler"],
-    "Doe Memorial Library": ["doe", "doe library"],
-    "Campanile (Sather Tower)": ["campanile", "sather tower"],
-    "Moffitt Undergraduate Library": ["moffitt"],
-    "Soda Hall": ["soda"],
+    "Anthony Hall": ["anthony"],
+    "Barker Hall": ["barker"],
+    "Social Sciences Building": ["barrows", "social sciences", "socs"],
+    "Bechtel Engineering Center": ["bechtel", "engineering", "engineering center"],
+    "Birge Hall": ["birge"],
+    "Blum Hall": ["blum", "blum center"],
+    "School of Law": ["boalt", "school of law"],
+    "California Hall": ["california"],
+    "Campbell Hall": ["campbell"],
+    "Cheit Hall": ["cheit"],
+    "Chou Hall": ["chou"],
+    "Cory Hall": ["cory"],
+    "Davis Hall": ["davis"],
+    "Durant Hall": ["durant"],
     "Dwinelle Hall": ["dwinelle"],
-    "Valley Life Sciences Building": ["vlsb"], // only if you want to allow the common acronym
-    // ... add more aliases as needed
+    "Eshleman Hall": ["eshleman"],
+    "Etcheverry Hall": ["etcheverry"],
+    "Evans Hall": ["evans"],
+    "Genetics and Plant Biology Building": ["genetics", "plant biology", "genetics and plant biology"],
+    "Giannini Hall": ["giannini"],
+    "Giauque Hall": ["giauque"],
+    "Gilman Hall": ["gilman"],
+    "Haviland Hall": ["haviland"],
+    "Hearst Field Annex": ["hearst", "hearst annex", "hearst field"],
+    "Hearst Memorial": ["hearst mining", "hearst memorial", "hearst memorial mining"],
+    "Hertz Hall": ["hertz"],
+    "Hesse Hall": ["hesse"],
+    "Hildebrand Hall": ["hildebrand"],
+    "Hilgard Hall": ["hilgard"],
+    "Jacobs Hall": ["jacobs"],
+    "Koshland Hall": ["koshland"],
+    "Anthropology and Art Practice Building": ["kroeber", "anthropology", "art practice", "anthropology and art practice"],
+    "Latimer Hall": ["latimer"],
+    "Physics Building": ["leconte", "physics north", "physics south", "physics"],
+    "Lewis Hall": ["lewis"],
+    "Li Ka Shing Center": ["li ka shing"],
+    "McCone Hall": ["mccone"],
+    "McLaughlin Hall": ["mclaughlin"],
+    "Minor Hall": ["minor"],
+    "Morgan Hall": ["morgan"],
+    "Morrison Hall": ["morrison"],
+    "Philosophy Hall": ["moses", "philosophy"],
+    "Mulford Hall": ["mulford"],
+    "North Gate Hall": ["north gate"],
+    "O'Brien Hall": ["o'brien"],
+    "Pimentel Hall": ["pimentel"],
+    "Goldman School of Public Policy": ["goldman", "public policy"],
+    "Simon Hall": ["simon"],
+    "Soda Hall": ["soda"],
+    "South Hall": ["south"],
+    "Sproul Hall": ["sproul"],
+    "Stanley Hall": ["stanley"],
+    "Stephens Hall": ["stephens"],
+    "Sutardja Dai Hall": ["sutardja dai", "CITRIS"],
+    "Tan Hall": ["tan"],
+    "Valley Life Sciences Building": ["life sciences", "vlsb"],
+    "Warren Hall": ["warren"],
+    "Wellman Hall": ["wellman"],
+    "Wheeler Hall": ["wheeler"],
+    "Wurster Hall": ["wurster"],
+    "Zellerbach Hall": ["zellerbach"]
   };
 
   const handleGuess = (buildingName: string) => {
@@ -63,24 +118,29 @@ export default function Game() {
       // Exact match
       if (fullName === formattedGuess) return true;
       
-      // Check aliases
-      const aliases = buildingAliases[building.name] || [];
-      if (aliases.includes(formattedGuess)) return true;
+      // Check aliases - look through all alias lists
+      for (const [buildingKey, aliases] of Object.entries(buildingAliases)) {
+        if (building.name.includes(buildingKey) && aliases.includes(formattedGuess)) {
+          return true;
+        }
+      }
       
       // For longer building names (>6 chars), check for similarity
       if (formattedGuess.length > 6) {
-        // Calculate similarity threshold based on length
-        const maxDistance = Math.floor(formattedGuess.length / 5); // allows roughly 1 error per 5 characters
+        const maxDistance = Math.floor(formattedGuess.length / 5);
         
-        // Check similarity with full name
         if (levenshteinDistance(fullName, formattedGuess) <= maxDistance) {
           return true;
         }
         
-        // Check similarity with aliases
-        return aliases.some(alias => 
-          levenshteinDistance(alias, formattedGuess) <= maxDistance
-        );
+        // Check similarity with all possible aliases
+        for (const [buildingKey, aliases] of Object.entries(buildingAliases)) {
+          if (building.name.includes(buildingKey)) {
+            if (aliases.some(alias => levenshteinDistance(alias, formattedGuess) <= maxDistance)) {
+              return true;
+            }
+          }
+        }
       }
 
       return false;
@@ -95,10 +155,16 @@ export default function Game() {
 
   return (
     <div className="flex flex-col lg:flex-row h-screen">
+      {showCover && <CoverScreen onDismiss={() => setShowCover(false)} />}
+      
       {/* Search bar container */}
       <div className="absolute top-4 left-0 right-0 flex justify-center items-center z-20">
         <div className="flex items-center gap-2 max-w-xl w-[90%] sm:w-[60%]">
-          <SearchBar onGuess={handleGuess} className="flex-grow" />
+          <SearchBar 
+            onGuess={handleGuess} 
+            onReset={handleReset}
+            className="flex-grow" 
+          />
         </div>
       </div>
 

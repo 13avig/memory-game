@@ -5,7 +5,7 @@ interface ScoreboardProps {
   }
   
   export default function Scoreboard({ correctBuildings }: ScoreboardProps) {
-    const totalBuildings = 60; // Update this with your total number of buildings
+    const totalBuildings = buildingsData.length; // Update this with your total number of buildings
     const percentage = ((correctBuildings.length / totalBuildings) * 100).toFixed(2);
   
     return (
