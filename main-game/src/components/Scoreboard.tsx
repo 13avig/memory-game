@@ -10,8 +10,9 @@ interface ScoreboardProps {
   
     return (
       <div className="mb-6">
-        <p className="text-4xl font-bold font-['Poppins'] mb-2">
-          {percentage}% <span className="text-xl text-black-600 font-['Poppins'] mt-1">buildings found</span>
+        <p className="text-2xl font-['Poppins'] font-bold">
+          {correctBuildings.length} buildings found 
+          <span className="text-black-600 ml-2">({percentage}%)</span>
         </p>
       </div>
     );

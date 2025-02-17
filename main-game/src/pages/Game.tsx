@@ -176,7 +176,7 @@ export default function Game() {
       {/* Scoreboard container */}
       <div className="w-full lg:w-1/3 p-8 bg-white shadow-lg z-10 overflow-y-auto">
         <Scoreboard correctBuildings={correctBuildings} />
-        <div className="h-[40vh]"></div>
+        {/* <div className="h-[40vh]"></div> */}
         <BuildingList correctBuildings={correctBuildings} />
       </div>
     </div>
