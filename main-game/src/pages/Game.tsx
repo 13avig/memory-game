@@ -30,7 +30,7 @@ function levenshteinDistance(str1: string, str2: string): number {
 export default function Game() {
   const [showCover, setShowCover] = useState(true);
   const [correctBuildings, setCorrectBuildings] = useState<string[]>([]);
-  const buildings = buildingsData.map((b) => b.name.toLowerCase()); // Store names in lowercase for validation
+  //const buildings = buildingsData.map((b) => b.name.toLowerCase()); // Store names in lowercase for validation
 
   // Add reset game handler
   const handleReset = () => {

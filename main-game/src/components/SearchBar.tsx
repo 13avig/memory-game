@@ -6,7 +6,7 @@ interface SearchBarProps {
   className?: string;
 }
 
-export default function SearchBar({ onGuess, onReset, className }: SearchBarProps) {
+export default function SearchBar({ onGuess, onReset }: SearchBarProps) {
   const [value, setValue] = useState('');
   const [isShaking, setIsShaking] = useState(false);
 
