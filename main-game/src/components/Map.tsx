@@ -65,58 +65,130 @@ export default function Map({ correctBuildings }: MapProps) {
             map.current?.setLayoutProperty(layer, 'visibility', 'none');
           });
         }
+      });
 
-        // Initialize markers for all buildings (hidden initially)
-        buildings.forEach((building) => {
-          // Create marker element
-          const el = document.createElement("div");
-          el.className = "marker";
-          el.style.cssText = `
-            width: 25px;
-            height: 25px;
-            background-image: url(https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png);
-            background-size: cover;
-            display: none;
-            pointer-events: none;
-          `;
+  //     buildings.forEach((building) => {
+  //       const el = document.createElement('div');
+  //       el.className = 'marker';
+  //       el.style.width = '25px';
+  //       el.style.height = '25px';
+  //       el.style.backgroundImage = 'url(https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png)';
+  //       el.style.backgroundSize = 'cover';
+  //       el.style.display = 'none';
 
-          // Create popup
-          const popup = new mapboxgl.Popup({
-            offset: 25,
-            closeButton: false,
-            closeOnClick: false,
-            anchor: "bottom",
-          }).setHTML(
-            `<div style="font-family: 'Poppins'; padding: 8px;">${building.name}</div>`
-          );
+  //       const popup = new mapboxgl.Popup({
+  //         offset: 25,
+  //         closeButton: false,
+  //         closeOnClick: false,
+  //         anchor: 'bottom'
+  //       }).setHTML(`<div style="font-family: 'Poppins'; padding: 8px;">${building.name}</div>`);
 
-          // Create marker with fixed rotation and pitch
-          const marker = new mapboxgl.Marker({
-            element: el,
-            anchor: "bottom",
-            rotationAlignment: "viewport",
-            pitchAlignment: "viewport"
-          })
-            .setLngLat([parseFloat(building.longitude), parseFloat(building.latitude)])
-            .setPopup(popup)
-            .addTo(map.current);
+  //       const marker = new mapboxgl.Marker({
+  //         element: el,
+  //         anchor: 'bottom',
+  //         pitchAlignment: 'map',
+  //         rotationAlignment: 'map'
+  //       })
+  //         .setLngLat([building.longitude, building.latitude])
+  //         .setPopup(popup);
 
-          markersRef.current[building.name] = marker;
-        });
+  //       if (map.current) {
+  //         marker.addTo(map.current);
+  //       }
+  //       markersRef.current[building.name] = marker;
+  //     });
+  //   }
+  // }, []);
+
+  staticMarkers.forEach(({ lng, lat }) => {
+    const el = document.createElement("div");
+    el.className = "static-marker";
+    el.style.width = "20px";
+    el.style.height = "20px";
+    el.style.backgroundImage =
+      "url(https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png)";
+    el.style.backgroundSize = "cover";
+
+    new mapboxgl.Marker({
+      element: el,
+      anchor: "bottom",
+    })
+      .setLngLat([lng, lat])
+      .addTo(map.current!);
+  });
+
+  // Initialize interactive markers (hidden by default)
+      buildings.forEach((building) => {
+        const el = document.createElement("div");
+        el.className = "marker";
+        el.style.width = "25px";
+        el.style.height = "25px";
+        el.style.backgroundImage =
+          "url(https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png)";
+        el.style.backgroundSize = "cover";
+        el.style.display = "none";
+
+        const popup = new mapboxgl.Popup({
+          offset: 25,
+          closeButton: false,
+          closeOnClick: false,
+          anchor: "bottom",
+        }).setHTML(
+          `<div style="font-family: 'Poppins'; padding: 8px;">${building.name}</div>`
+        );
+
+        const marker = new mapboxgl.Marker({
+          element: el,
+          anchor: "bottom",
+        })
+          .setLngLat([building.longitude, building.latitude])
+          .setPopup(popup);
+
+        marker.addTo(map.current!);
+        markersRef.current[building.name] = marker;
       });
     }
-  }, []);
+    }, []);
 
-  // Update marker visibility based on correct guesses
   useEffect(() => {
     Object.entries(markersRef.current).forEach(([buildingName, marker]) => {
       const element = marker.getElement();
       if (correctBuildings.includes(buildingName)) {
         element.style.display = 'block';
         const popup = marker.getPopup();
-        if (popup && map.current) {
-          popup.addTo(map.current);
+        if (popup!.isOpen() && map.current) {
+          popup!.addTo(map.current);
         }
+      } else {
+        element.style.display = 'none';
+        marker.getPopup()!.remove();
+      }
+    });
+  }, [correctBuildings]);
+
+  useEffect(() => {
+    if (!map.current) return;
+    
+    correctBuildings.forEach(buildingName => {
+      const building = buildings.find(b => b.name === buildingName);
+      if (building) {
+        map.current?.setFeatureState(
+          {
+            source: 'berkeley',
+            sourceLayer: 'data-driven-circles',
+            id: building.name
+          },
+          { visible: true }
+        );
+        
+        map.current?.setFeatureState(
+          {
+            source: 'berkeley',
+            sourceLayer: 'data-driven-circles-labels',
+            id: building.name
+          },
+          { visible: true }
+        );
       }
     });
   }, [correctBuildings]);
@@ -130,9 +202,6 @@ export default function Map({ correctBuildings }: MapProps) {
             bottom: 0;
             right: 0;
             padding: 5px;
-          }
-          .marker {
-            transition: all 0.3s ease;
           }
         `}
       </style>
