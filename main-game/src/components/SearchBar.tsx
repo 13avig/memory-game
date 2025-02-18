@@ -1,29 +1,87 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface SearchBarProps {
   onGuess: (buildingName: string) => boolean;
   onReset: () => void;
+  correctBuildings: string[];
   className?: string;
 }
 
-export default function SearchBar({ onGuess, onReset }: SearchBarProps) {
+function levenshteinDistance(str1: string, str2: string): number {
+  const track = Array(str2.length + 1).fill(null).map(() =>
+    Array(str1.length + 1).fill(null));
+
+  for (let i = 0; i <= str1.length; i++) track[0][i] = i;
+  for (let j = 0; j <= str2.length; j++) track[j][0] = j;
+
+  for (let j = 1; j <= str2.length; j++) {
+    for (let i = 1; i <= str1.length; i++) {
+      const indicator = str1[i - 1] === str2[j - 1] ? 0 : 1;
+      track[j][i] = Math.min(
+        track[j][i - 1] + 1,
+        track[j - 1][i] + 1,
+        track[j - 1][i - 1] + indicator
+      );
+    }
+  }
+  return track[str2.length][str1.length];
+}
+
+export default function SearchBar({ onGuess, onReset, correctBuildings }: SearchBarProps) {
   const [value, setValue] = useState('');
   const [isShaking, setIsShaking] = useState(false);
+  const [showAlreadyFound, setShowAlreadyFound] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (value.trim()) {
+      const normalizedGuess = value.trim().toLowerCase();
+      
+      // More lenient fuzzy matching for already found buildings
+      const isAlreadyFound = correctBuildings.some(building => {
+        const normalizedBuilding = building.toLowerCase();
+        
+        // Check for exact match first
+        if (normalizedBuilding === normalizedGuess) {
+          return true;
+        }
+
+        // For fuzzy matching, calculate similarity ratio
+        const maxLength = Math.max(normalizedGuess.length, normalizedBuilding.length);
+        const distance = levenshteinDistance(normalizedGuess, normalizedBuilding);
+        const similarity = (maxLength - distance) / maxLength;
+
+        // Adjust these thresholds as needed
+        return (
+          normalizedGuess.length >= 3 && 
+          (
+            // Higher similarity threshold for shorter strings
+            (normalizedGuess.length <= 5 && similarity >= 0.7) ||
+            // Lower similarity threshold for longer strings
+            (normalizedGuess.length > 5 && similarity >= 0.6)
+          )
+        );
+      });
+
+      if (isAlreadyFound) {
+        setShowAlreadyFound(true);
+        setTimeout(() => setShowAlreadyFound(false), 2000);
+        setValue('');
+        return;
+      }
+
       const wasCorrect = onGuess(value);
       if (!wasCorrect) {
         setIsShaking(true);
-        setTimeout(() => setIsShaking(false), 300); // Reset shake after animation
+        setTimeout(() => setIsShaking(false), 300);
+      } else {
+        setValue('');
       }
-      setValue('');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="relative flex items-center">
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
@@ -39,17 +97,31 @@ export default function SearchBar({ onGuess, onReset }: SearchBarProps) {
           .shake {
             animation: shake 0.3s ease-in-out;
           }
+          @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+          }
+          .fade-out {
+            animation: fadeOut 2s ease-in-out;
+          }
         `}
       </style>
-      <input
-        type="text"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder="Building"
-        className={`flex-grow px-4 py-3 rounded-full shadow-lg border-2 border-black focus:outline-none focus:ring-2 focus:ring-blue-500 font-['Poppins'] ${
-          isShaking ? 'shake' : ''
-        }`}
-      />
+      <div className="relative flex-grow">
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          placeholder="Building"
+          className={`w-full px-4 py-3 rounded-full shadow-lg border-2 border-black focus:outline-none focus:ring-2 focus:ring-blue-500 font-['Poppins'] ${
+            isShaking ? 'shake' : ''
+          }`}
+        />
+        {showAlreadyFound && (
+          <div className="absolute right-4 top-1/2 -translate-y-1/2 text-green-600 text-xs font-['Poppins'] fade-out">
+            ALREADY FOUND
+          </div>
+        )}
+      </div>
       <button 
         type="button"
         onClick={onReset}

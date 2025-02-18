@@ -5,40 +5,10 @@
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [-122.253168, 37.873357]
-        },
-        "properties": {
-          "name": "Bowles Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
           "coordinates": [-122.26549, 37.87395]
         },
         "properties": {
           "name": "Barker Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25956, 37.87244]
-        },
-        "properties": {
-          "name": "Doe Memorial Library"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.2587, 37.8723]
-        },
-        "properties": {
-          "name": "Bancroft Library"
         }
       },
       {
@@ -65,40 +35,10 @@
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [-122.25878, 37.8696]
-        },
-        "properties": {
-          "name": "Visitor Center"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.26119, 37.86968]
-        },
-        "properties": {
-          "name": "Alumni House"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
           "coordinates": [-122.26038, 37.87189]
         },
         "properties": {
           "name": "California Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.257964, 37.872332]
-        },
-        "properties": {
-          "name": "Campanile (Sather Tower) / Sather Tower"
         }
       },
       {
@@ -125,26 +65,6 @@
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [-122.260722, 37.870515]
-        },
-        "properties": {
-          "name": "Durham Studio Theater"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.253027, 37.870805]
-        },
-        "properties": {
-          "name": "2232 Piedmont Ave."
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
           "coordinates": [-122.260471, 37.868761]
         },
         "properties": {
@@ -155,20 +75,10 @@
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [-122.253027, 37.870805]
-        },
-        "properties": {
-          "name": "Demography"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
           "coordinates": [-122.25341, 37.86992]
         },
         "properties": {
-          "name": "Boalt Hall / Law School"
+          "name": "School of Law"
         }
       },
       {
@@ -179,26 +89,6 @@
         },
         "properties": {
           "name": "Valley Life Sciences Building"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.26325, 37.87139]
-        },
-        "properties": {
-          "name": "Life Sciences Addition"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.26081, 37.87255]
-        },
-        "properties": {
-          "name": "Moffitt Undergraduate Library"
         }
       },
       {
@@ -228,7 +118,7 @@
           "coordinates": [-122.2552, 37.86988]
         },
         "properties": {
-          "name": "Kroeber Hall"
+          "name": "Anthropology and Art Practice Building"
         }
       },
       {
@@ -249,46 +139,6 @@
         },
         "properties": {
           "name": "Stanley Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.262897, 37.868652]
-        },
-        "properties": {
-          "name": "Recreational Sports Facility"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.262122, 37.868809]
-        },
-        "properties": {
-          "name": "Spieker Aquatics Complex"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.26222, 37.8694]
-        },
-        "properties": {
-          "name": "Haas Pavilion"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.26392209529877, 37.87412506921522]
-        },
-        "properties": {
-          "name": "Tolman Hall"
         }
       },
       {
@@ -318,7 +168,7 @@
           "coordinates": [-122.264751, 37.873513]
         },
         "properties": {
-          "name": "Genetics and Plant Biology"
+          "name": "Genetics and Plant Biology Building"
         }
       },
       {
@@ -345,16 +195,6 @@
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [-122.26298332214355, 37.873743966413784]
-        },
-        "properties": {
-          "name": "Henry H. Wheeler Brain Imaging Center"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
           "coordinates": [-122.26234, 37.87357]
         },
         "properties": {
@@ -375,30 +215,10 @@
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [-122.262077, 37.874536]
-        },
-        "properties": {
-          "name": "University House"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
           "coordinates": [-122.26105, 37.87374]
         },
         "properties": {
           "name": "Haviland Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.26034, 37.87357]
-        },
-        "properties": {
-          "name": "Starr East Asian Library / East Asian Library"
         }
       },
       {
@@ -468,7 +288,7 @@
           "coordinates": [-122.258389, 37.874822]
         },
         "properties": {
-          "name": "Sutardja Dai Hall / CITRIS"
+          "name": "Sutardja Dai Hall"
         }
       },
       {
@@ -505,40 +325,10 @@
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [-122.25432, 37.87355]
-        },
-        "properties": {
-          "name": "Hearst Greek Theatre / Greek Theatre"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
           "coordinates": [-122.25727, 37.87446]
         },
         "properties": {
-          "name": "Hearst Memorial Mining Building"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25649, 37.87463]
-        },
-        "properties": {
-          "name": "Donner Laboratory"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.255763, 37.875429]
-        },
-        "properties": {
-          "name": "Foothill Residence Halls"
+          "name": "Hearst Mining Building"
         }
       },
       {
@@ -548,7 +338,7 @@
           "coordinates": [-122.25688, 37.87249]
         },
         "properties": {
-          "name": "Le Conte Hall"
+          "name": "Physics Building"
         }
       },
       {
@@ -635,16 +425,6 @@
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [-122.26123, 37.87035]
-        },
-        "properties": {
-          "name": "Dwinelle Annex"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
           "coordinates": [-122.26013, 37.87126]
         },
         "properties": {
@@ -655,60 +435,10 @@
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [-122.26015, 37.8698]
-        },
-        "properties": {
-          "name": "Cesar E. Chavez Student Center"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
           "coordinates": [-122.261226, 37.869048]
         },
         "properties": {
           "name": "Zellerbach Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.259614, 37.869137]
-        },
-        "properties": {
-          "name": "Martin Luther King, Jr. Student Union / Student Union"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.261202, 37.868662]
-        },
-        "properties": {
-          "name": "Bancroft Dance Studio (2401 Bancroft Way) / 2401 Bancroft Way"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.258756, 37.870162]
-        },
-        "properties": {
-          "name": "Architects & Engineers (A&E)"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25861, 37.87059]
-        },
-        "properties": {
-          "name": "Old Art Gallery"
         }
       },
       {
@@ -728,7 +458,7 @@
           "coordinates": [-122.25799, 37.87099]
         },
         "properties": {
-          "name": "Moses Hall"
+          "name": "Philosophy Hall"
         }
       },
       {
@@ -738,7 +468,7 @@
           "coordinates": [-122.25791, 37.87006]
         },
         "properties": {
-          "name": "Barrows Hall"
+          "name": "Social Sciences Building"
         }
       },
       {
@@ -765,90 +495,10 @@
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [-122.2561, 37.87044]
-        },
-        "properties": {
-          "name": "Hargrove Music Library"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25393, 37.87099]
-        },
-        "properties": {
-          "name": "Calvin Laboratory / Melvin Calvin Laboratory"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
           "coordinates": [-122.25266, 37.86985]
         },
         "properties": {
           "name": "Simon Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25687, 37.86956]
-        },
-        "properties": {
-          "name": "Hearst Memorial Gymnasium"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25582, 37.869607]
-        },
-        "properties": {
-          "name": "Bancroft Parking Structure"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25145, 37.86975]
-        },
-        "properties": {
-          "name": "International House"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.2506, 37.87132]
-        },
-        "properties": {
-          "name": "California Memorial Stadium"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.2522, 37.87143]
-        },
-        "properties": {
-          "name": "Simpson Center for Student-Athlete High Performance"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25082, 37.87614]
-        },
-        "properties": {
-          "name": "Lawrence Berkeley National Laboratory"
         }
       },
       {
@@ -885,60 +535,10 @@
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [-122.255862, 37.871783]
-        },
-        "properties": {
-          "name": "Faculty Club"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.255533, 37.871946]
-        },
-        "properties": {
-          "name": "Senior Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25487, 37.872148]
-        },
-        "properties": {
-          "name": "Women's Faculty Club"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
           "coordinates": [-122.254711, 37.871525]
         },
         "properties": {
           "name": "Minor Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.238312, 37.87476]
-        },
-        "properties": {
-          "name": "Julia Morgan Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25384, 37.87169]
-        },
-        "properties": {
-          "name": "Haas School of Business / Andersen Auditorium"
         }
       },
       {
@@ -955,320 +555,10 @@
         "type": "Feature",
         "geometry": {
           "type": "Point",
-          "coordinates": [-122.253821, 37.870221]
-        },
-        "properties": {
-          "name": "Archaeological Research Facility / 2251 College Ave"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.254, 37.86809]
-        },
-        "properties": {
-          "name": "Ida Louise Jackson Graduate House / Jackson Graduate House"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25512, 37.86782]
-        },
-        "properties": {
-          "name": "Unit 1 Resident Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.255667, 37.86871]
-        },
-        "properties": {
-          "name": "Woo Hon Fai Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.257529, 37.869036]
-        },
-        "properties": {
-          "name": "Pacific Film Archive, Berkeley Art Museum and"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.266221, 37.870942]
-        },
-        "properties": {
-          "name": "Berkeley Art Museum and Pacific Film Archive"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25492, 37.86705]
-        },
-        "properties": {
-          "name": "Underhill Parking Facility & Playing Field"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.255849, 37.866884]
-        },
-        "properties": {
-          "name": "Residential & Student Services Building"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25477, 37.86609]
-        },
-        "properties": {
-          "name": "Unit 2 Resident Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25982, 37.866692]
-        },
-        "properties": {
-          "name": "Cleary Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.260358, 37.867182]
-        },
-        "properties": {
-          "name": "Unit 3 Resident Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.262501, 37.865971]
-        },
-        "properties": {
-          "name": "Ellsworth Parking Structure"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.261513, 37.865899]
-        },
-        "properties": {
-          "name": "Haste Street Child Development Center"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.26426, 37.867555]
-        },
-        "properties": {
-          "name": "Tang Center / University Health Services"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.265581, 37.86741]
-        },
-        "properties": {
-          "name": "Office of Public Affairs / Public Affairs, Office of"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.2641, 37.86572]
-        },
-        "properties": {
-          "name": "Jones Child Study Center"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.267039, 37.865639]
-        },
-        "properties": {
-          "name": "Manville Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.26687, 37.86788]
-        },
-        "properties": {
-          "name": "Banway Building (2111 Bancroft Way)"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.26686, 37.868565]
-        },
-        "properties": {
-          "name": "Parking & Transportation (2150 Kittredge St)"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.26635, 37.87189]
-        },
-        "properties": {
-          "name": "University Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.267672, 37.873092]
-        },
-        "properties": {
-          "name": "2120 Berkeley Way / UC Press"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.27127, 37.87199]
-        },
-        "properties": {
-          "name": "1995 University Ave (Golden Bear Center) / Extension"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.27127, 37.87199]
-        },
-        "properties": {
-          "name": "UC Berkeley Extension"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.27127, 37.87199]
-        },
-        "properties": {
-          "name": "East Asian Studies, Institute of"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.27127, 37.87199]
-        },
-        "properties": {
-          "name": "Southeast Asian Studies, Center for"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.27127, 37.87199]
-        },
-        "properties": {
-          "name": "Summer Session"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.266478, 37.873911]
-        },
-        "properties": {
-          "name": "Energy Biosciences Building"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
           "coordinates": [-122.266894, 37.874307]
         },
         "properties": {
-          "name": "Warren Hall / 2195 Hearst"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.266862, 37.874892]
-        },
-        "properties": {
-          "name": "Natural Resources Laboratory"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.26739, 37.874606]
-        },
-        "properties": {
-          "name": "Insectary Greenhouse"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.267095, 37.875366]
-        },
-        "properties": {
-          "name": "Oxford Research Unit"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.26165, 37.8753]
-        },
-        "properties": {
-          "name": "Lower Hearst Parking Structure"
+          "name": "Warren Hall"
         }
       },
       {
@@ -1298,257 +588,7 @@
           "coordinates": [-122.25804, 37.87559]
         },
         "properties": {
-          "name": "Goldman School / 2607 Hearst"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25735, 37.87576]
-        },
-        "properties": {
-          "name": "Upper Hearst Parking Structure"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25553, 37.87481]
-        },
-        "properties": {
-          "name": "Stern Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.257665, 37.866744]
-        },
-        "properties": {
-          "name": "Martinez Commons"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25744, 37.86637]
-        },
-        "properties": {
-          "name": "Anna Head Alumnae Hall"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.256787, 37.867561]
-        },
-        "properties": {
-          "name": "Fox Cottage (2350 Bowditch)"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.256863, 37.867743]
-        },
-        "properties": {
-          "name": "2334 Bowditch / Latin American Studies, Center for"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.260674, 37.868283]
-        },
-        "properties": {
-          "name": "2440 Bancroft Way / Career Center"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.26686, 37.8698]
-        },
-        "properties": {
-          "name": "Magnes Collection of Jewish Art and Life / 2121 Allston Way"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.257882, 37.867318]
-        },
-        "properties": {
-          "name": "2521 Channing Way / IRLE"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.255141, 37.871354]
-        },
-        "properties": {
-          "name": "Minor Hall Addition"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.2492, 37.86442]
-        },
-        "properties": {
-          "name": "Clark Kerr Campus"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.26514, 37.86995]
-        },
-        "properties": {
-          "name": "Hellman Tennis Center"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.24662, 37.87942]
-        },
-        "properties": {
-          "name": "Lawrence Hall of Science"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.246043, 37.872505]
-        },
-        "properties": {
-          "name": "Haas Clubhouse"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.24431, 37.88071]
-        },
-        "properties": {
-          "name": "Space Sciences Laboratory"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.24434, 37.87981]
-        },
-        "properties": {
-          "name": "Mathematical Sciences Research Institute (MSRI)"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.253048, 37.870983]
-        },
-        "properties": {
-          "name": "2224 Piedmont Ave"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.264499, 37.876666]
-        },
-        "properties": {
-          "name": "CNMAT (1750 Arch St) / 1750 Arch St"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.267342, 37.869401]
-        },
-        "properties": {
-          "name": "2108 Allston Way"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.302267, 37.873215]
-        },
-        "properties": {
-          "name": "1608 4th Street / Campus Shared Services"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.266787, 37.873014]
-        },
-        "properties": {
-          "name": "1925 Walnut St"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.261843, 37.875544]
-        },
-        "properties": {
-          "name": "Graduate Theological Union"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.334985, 37.917643]
-        },
-        "properties": {
-          "name": "Northern Regional Library Facility"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.332485, 37.918328]
-        },
-        "properties": {
-          "name": "Earthquake Engineering Library"
-        }
-      },
-      {
-        "type": "Feature",
-        "geometry": {
-          "type": "Point",
-          "coordinates": [-122.25272, 37.8723]
-        },
-        "properties": {
-          "name": "Maxwell Family Field and Stadium Garage"
+          "name": "Goldman School of Public Policy"
         }
       },
       {
@@ -1559,6 +599,16 @@
         },
         "properties": {
           "name": "Jacobs Hall"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [-122.2542, 37.8722]
+        },
+        "properties": {
+          "name": "Chou Hall"
         }
       }
     ]

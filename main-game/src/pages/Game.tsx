@@ -69,7 +69,7 @@ export default function Game() {
     "Gilman Hall": ["gilman"],
     "Haviland Hall": ["haviland"],
     "Hearst Field Annex": ["hearst", "hearst annex", "hearst field"],
-    "Hearst Memorial": ["hearst mining", "hearst memorial", "hearst memorial mining"],
+    "Hearst Mining Building": ["hearst mining", "hearst memorial", "hearst memorial mining"],
     "Hertz Hall": ["hertz"],
     "Hesse Hall": ["hesse"],
     "Hildebrand Hall": ["hildebrand"],
@@ -127,7 +127,7 @@ export default function Game() {
       
       // For longer building names (>6 chars), check for similarity
       if (formattedGuess.length > 6) {
-        const maxDistance = Math.floor(formattedGuess.length / 5);
+        const maxDistance = Math.floor(formattedGuess.length / 6);
         
         if (levenshteinDistance(fullName, formattedGuess) <= maxDistance) {
           return true;
@@ -163,7 +163,7 @@ export default function Game() {
           <SearchBar 
             onGuess={handleGuess} 
             onReset={handleReset}
-            className="flex-grow" 
+            correctBuildings={correctBuildings}
           />
         </div>
       </div>
