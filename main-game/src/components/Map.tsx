@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import buildingsData from "../data/buildings.json";
+import 'mapbox-gl/dist/mapbox-gl.css'; 
 
 mapboxgl.accessToken = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 
@@ -24,12 +25,6 @@ export default function Map({ correctBuildings }: MapProps) {
     latitude: parseFloat(building.latitude),
     longitude: parseFloat(building.longitude)
   }));
-
-  const staticMarkers = [
-    { lng: -122.25914, lat: 37.87129 },
-    { lng: -122.26041, lat: 37.87058 },
-    { lng: -122.260471, lat: 37.868761 },
-  ];
 
   useEffect(() => {
     if (mapContainer.current && !map.current) {
@@ -100,98 +95,175 @@ export default function Map({ correctBuildings }: MapProps) {
   //   }
   // }, []);
 
-  staticMarkers.forEach(({ lng, lat }) => {
-    const el = document.createElement("div");
-    el.className = "static-marker";
-    el.style.width = "20px";
-    el.style.height = "20px";
-    el.style.backgroundImage =
-      "url(https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png)";
-    el.style.backgroundSize = "cover";
-
-    new mapboxgl.Marker({
-      element: el,
-      anchor: "bottom",
-    })
-      .setLngLat([lng, lat])
-      .addTo(map.current!);
-  });
-
   // Initialize interactive markers (hidden by default)
-      buildings.forEach((building) => {
-        const el = document.createElement("div");
-        el.className = "marker";
-        el.style.width = "25px";
-        el.style.height = "25px";
-        el.style.backgroundImage =
-          "url(https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png)";
-        el.style.backgroundSize = "cover";
-        el.style.display = "none";
+  //     buildings.forEach((building) => {
+  //       const el = document.createElement("div");
+  //       el.className = "marker";
+  //       el.style.width = "25px";
+  //       el.style.height = "25px";
+  //       el.style.backgroundImage =
+  //         "url(https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png)";
+  //       el.style.backgroundSize = "cover";
+  //       el.style.display = "none";
 
-        const popup = new mapboxgl.Popup({
-          offset: 25,
-          closeButton: false,
-          closeOnClick: false,
-          anchor: "bottom",
-        }).setHTML(
-          `<div style="font-family: 'Poppins'; padding: 8px;">${building.name}</div>`
-        );
+  //       const popup = new mapboxgl.Popup({
+  //         offset: 25,
+  //         closeButton: false,
+  //         closeOnClick: false,
+  //         anchor: "bottom",
+  //       }).setHTML(
+  //         `<div style="font-family: 'Poppins'; padding: 8px;">${building.name}</div>`
+  //       );
 
-        const marker = new mapboxgl.Marker({
-          element: el,
-          anchor: "bottom",
-        })
-          .setLngLat([building.longitude, building.latitude])
-          .setPopup(popup);
+  //       const marker = new mapboxgl.Marker({
+  //         element: el,
+  //         anchor: "bottom",
+  //       })
+  //         .setLngLat([building.longitude, building.latitude])
+  //         .setPopup(popup);
 
-        marker.addTo(map.current!);
-        markersRef.current[building.name] = marker;
-      });
-    }
-    }, []);
+  //       marker.addTo(map.current!);
+  //       markersRef.current[building.name] = marker;
+  //     });
+  //   }
+  //   }, []);
 
-  useEffect(() => {
-    Object.entries(markersRef.current).forEach(([buildingName, marker]) => {
-      const element = marker.getElement();
-      if (correctBuildings.includes(buildingName)) {
-        element.style.display = 'block';
-        const popup = marker.getPopup();
-        if (popup!.isOpen() && map.current) {
-          popup!.addTo(map.current);
-        }
-      } else {
-        element.style.display = 'none';
-        marker.getPopup()!.remove();
-      }
-    });
-  }, [correctBuildings]);
+  // useEffect(() => {
+  //   Object.entries(markersRef.current).forEach(([buildingName, marker]) => {
+  //     const element = marker.getElement();
+  //     if (correctBuildings.includes(buildingName)) {
+  //       element.style.display = 'block';
+  //       const popup = marker.getPopup();
+  //       if (popup!.isOpen() && map.current) {
+  //         popup!.addTo(map.current);
+  //       }
+  //     } else {
+  //       element.style.display = 'none';
+  //       marker.getPopup()!.remove();
+  //     }
+  //   });
+  // }, [correctBuildings]);
 
-  useEffect(() => {
-    if (!map.current) return;
+  // useEffect(() => {
+  //   if (!map.current) return;
     
-    correctBuildings.forEach(buildingName => {
-      const building = buildings.find(b => b.name === buildingName);
-      if (building) {
-        map.current?.setFeatureState(
-          {
-            source: 'berkeley',
-            sourceLayer: 'data-driven-circles',
-            id: building.name
-          },
-          { visible: true }
-        );
+  //   correctBuildings.forEach(buildingName => {
+  //     const building = buildings.find(b => b.name === buildingName);
+  //     if (building) {
+  //       map.current?.setFeatureState(
+  //         {
+  //           source: 'berkeley',
+  //           sourceLayer: 'data-driven-circles',
+  //           id: building.name
+  //         },
+  //         { visible: true }
+  //       );
         
-        map.current?.setFeatureState(
-          {
-            source: 'berkeley',
-            sourceLayer: 'data-driven-circles-labels',
-            id: building.name
-          },
-          { visible: true }
-        );
-      }
-    });
-  }, [correctBuildings]);
+  //       map.current?.setFeatureState(
+  //         {
+  //           source: 'berkeley',
+  //           sourceLayer: 'data-driven-circles-labels',
+  //           id: building.name
+  //         },
+  //         { visible: true }
+  //       );
+  //     }
+  //   });
+  // }, [correctBuildings]);
+
+  // for (const feature of geoJsonData.features) {
+  
+  //   // Code from step 7-1 will go here
+  
+  //   // Ensure the feature has valid coordinates
+  //   if (feature.geometry && feature.geometry.type === "Point" && Array.isArray(feature.geometry.coordinates)) {
+  //     new mapboxgl.Marker()
+  //       .setLngLat(feature.geometry.coordinates as [number, number])
+  //       .addTo(map.current!);  // Replace this line with code from step 7-2
+  //   }
+  
+  //   // Code from step 8 will go here
+  // }
+
+  buildings.forEach((building) => {
+    // **CHANGED:** Create a marker element that includes a label
+    const markerEl = document.createElement("div");
+    markerEl.className = "marker";
+    //markerEl.style.position = "relative"; // for proper label positioning
+    markerEl.style.width = "25px";
+    markerEl.style.height = "25px";
+    markerEl.style.backgroundImage =
+      "url(https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png)";
+    markerEl.style.backgroundSize = "cover";
+    markerEl.style.display = "none"; // hidden by default
+
+    // **CHANGED:** Create a label element that displays the building name
+    const labelEl = document.createElement("span");
+    labelEl.className = "marker-label";
+    labelEl.textContent = building.name;
+    labelEl.style.position = "absolute";
+    labelEl.style.left = "30px"; // adjust to position the label to the right of the pin
+    labelEl.style.top = "50%";
+    labelEl.style.transform = "translateY(-50%)";
+    //labelEl.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
+    labelEl.style.padding = "2px 4px";
+    labelEl.style.borderRadius = "1px";
+    labelEl.style.whiteSpace = "nowrap";
+    labelEl.style.fontFamily = "Poppins";
+    labelEl.style.fontSize = "9px";
+
+    markerEl.appendChild(labelEl);
+
+    const marker = new mapboxgl.Marker({
+      element: markerEl,
+      anchor: "bottom",
+      pitchAlignment: "map",
+      rotationAlignment: "map"
+    }).setLngLat([building.longitude, building.latitude]);
+
+    marker.addTo(map.current!);
+    markersRef.current[building.name] = marker;
+  });
+}
+}, []);
+
+// **CHANGED:** Simplified effect to toggle marker visibility based on correctBuildings
+useEffect(() => {
+Object.entries(markersRef.current).forEach(([buildingName, marker]) => {
+  const element = marker.getElement();
+  element.style.display = correctBuildings.includes(buildingName)
+    ? "block"
+    : "none";
+});
+}, [correctBuildings]);
+
+// Optional: Feature state changes (if needed for your map style)
+useEffect(() => {
+if (!map.current) return;
+
+correctBuildings.forEach((buildingName) => {
+  const building = buildings.find((b) => b.name === buildingName);
+  if (building) {
+    map.current?.setFeatureState(
+      {
+        source: "berkeley",
+        sourceLayer: "data-driven-circles",
+        id: building.name,
+      },
+      { visible: true }
+    );
+
+    map.current?.setFeatureState(
+      {
+        source: "berkeley",
+        sourceLayer: "data-driven-circles-labels",
+        id: building.name,
+      },
+      { visible: true }
+    );
+  }
+});
+}, [correctBuildings]);
 
   return (
     <div ref={mapContainer} className="w-full h-full rounded-lg shadow-lg relative">

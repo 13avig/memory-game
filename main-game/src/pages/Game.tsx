@@ -91,7 +91,7 @@ export default function Game() {
     "North Gate Hall": ["north gate"],
     "O'Brien Hall": ["o'brien"],
     "Pimentel Hall": ["pimentel"],
-    "Goldman School of Public Policy": ["goldman", "public policy"],
+    "Goldman School of Public Policy": ["goldman", "public policy", "school of public policy"],
     "Simon Hall": ["simon"],
     "Soda Hall": ["soda"],
     "South Hall": ["south"],
