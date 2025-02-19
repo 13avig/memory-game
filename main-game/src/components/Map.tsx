@@ -62,129 +62,6 @@ export default function Map({ correctBuildings }: MapProps) {
         }
       });
 
-  //     buildings.forEach((building) => {
-  //       const el = document.createElement('div');
-  //       el.className = 'marker';
-  //       el.style.width = '25px';
-  //       el.style.height = '25px';
-  //       el.style.backgroundImage = 'url(https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png)';
-  //       el.style.backgroundSize = 'cover';
-  //       el.style.display = 'none';
-
-  //       const popup = new mapboxgl.Popup({
-  //         offset: 25,
-  //         closeButton: false,
-  //         closeOnClick: false,
-  //         anchor: 'bottom'
-  //       }).setHTML(`<div style="font-family: 'Poppins'; padding: 8px;">${building.name}</div>`);
-
-  //       const marker = new mapboxgl.Marker({
-  //         element: el,
-  //         anchor: 'bottom',
-  //         pitchAlignment: 'map',
-  //         rotationAlignment: 'map'
-  //       })
-  //         .setLngLat([building.longitude, building.latitude])
-  //         .setPopup(popup);
-
-  //       if (map.current) {
-  //         marker.addTo(map.current);
-  //       }
-  //       markersRef.current[building.name] = marker;
-  //     });
-  //   }
-  // }, []);
-
-  // Initialize interactive markers (hidden by default)
-  //     buildings.forEach((building) => {
-  //       const el = document.createElement("div");
-  //       el.className = "marker";
-  //       el.style.width = "25px";
-  //       el.style.height = "25px";
-  //       el.style.backgroundImage =
-  //         "url(https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png)";
-  //       el.style.backgroundSize = "cover";
-  //       el.style.display = "none";
-
-  //       const popup = new mapboxgl.Popup({
-  //         offset: 25,
-  //         closeButton: false,
-  //         closeOnClick: false,
-  //         anchor: "bottom",
-  //       }).setHTML(
-  //         `<div style="font-family: 'Poppins'; padding: 8px;">${building.name}</div>`
-  //       );
-
-  //       const marker = new mapboxgl.Marker({
-  //         element: el,
-  //         anchor: "bottom",
-  //       })
-  //         .setLngLat([building.longitude, building.latitude])
-  //         .setPopup(popup);
-
-  //       marker.addTo(map.current!);
-  //       markersRef.current[building.name] = marker;
-  //     });
-  //   }
-  //   }, []);
-
-  // useEffect(() => {
-  //   Object.entries(markersRef.current).forEach(([buildingName, marker]) => {
-  //     const element = marker.getElement();
-  //     if (correctBuildings.includes(buildingName)) {
-  //       element.style.display = 'block';
-  //       const popup = marker.getPopup();
-  //       if (popup!.isOpen() && map.current) {
-  //         popup!.addTo(map.current);
-  //       }
-  //     } else {
-  //       element.style.display = 'none';
-  //       marker.getPopup()!.remove();
-  //     }
-  //   });
-  // }, [correctBuildings]);
-
-  // useEffect(() => {
-  //   if (!map.current) return;
-    
-  //   correctBuildings.forEach(buildingName => {
-  //     const building = buildings.find(b => b.name === buildingName);
-  //     if (building) {
-  //       map.current?.setFeatureState(
-  //         {
-  //           source: 'berkeley',
-  //           sourceLayer: 'data-driven-circles',
-  //           id: building.name
-  //         },
-  //         { visible: true }
-  //       );
-        
-  //       map.current?.setFeatureState(
-  //         {
-  //           source: 'berkeley',
-  //           sourceLayer: 'data-driven-circles-labels',
-  //           id: building.name
-  //         },
-  //         { visible: true }
-  //       );
-  //     }
-  //   });
-  // }, [correctBuildings]);
-
-  // for (const feature of geoJsonData.features) {
-  
-  //   // Code from step 7-1 will go here
-  
-  //   // Ensure the feature has valid coordinates
-  //   if (feature.geometry && feature.geometry.type === "Point" && Array.isArray(feature.geometry.coordinates)) {
-  //     new mapboxgl.Marker()
-  //       .setLngLat(feature.geometry.coordinates as [number, number])
-  //       .addTo(map.current!);  // Replace this line with code from step 7-2
-  //   }
-  
-  //   // Code from step 8 will go here
-  // }
-
   buildings.forEach((building) => {
     // **CHANGED:** Create a marker element that includes a label
     const markerEl = document.createElement("div");
@@ -202,7 +79,7 @@ export default function Map({ correctBuildings }: MapProps) {
     labelEl.className = "marker-label";
     labelEl.textContent = building.name;
     labelEl.style.position = "absolute";
-    labelEl.style.left = "30px"; // adjust to position the label to the right of the pin
+    labelEl.style.left = "20px"; // adjust to position the label to the right of the pin
     labelEl.style.top = "50%";
     labelEl.style.transform = "translateY(-50%)";
     //labelEl.style.backgroundColor = "rgba(255, 255, 255, 0.8)";
