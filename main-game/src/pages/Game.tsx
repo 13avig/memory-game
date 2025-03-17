@@ -7,6 +7,7 @@ import buildingsData from "../data/buildings.json"; // Import buildings list
 import CoverScreen from "../components/CoverScreen";
 import AuthButton from "../components/AuthButton";
 import { buildingAliases } from "../data/buildingAliases";
+import { Link } from 'react-router-dom';
 
 // Add this helper function to calculate Levenshtein distance
 function levenshteinDistance(str1: string, str2: string): number {
@@ -162,6 +163,16 @@ export default function Game() {
       {/* Auth button in top right corner */}
       <div className="absolute top-6 right-4 z-30">
         <AuthButton />
+      </div>
+      
+      {/* Hard Mode button in bottom right corner */}
+      <div className="fixed bottom-6 right-4 z-30">
+        <Link 
+          to="/hard" 
+          className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors shadow-lg"
+        >
+          Hard Mode
+        </Link>
       </div>
       
       {/* Search bar container */}
