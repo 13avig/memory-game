@@ -32,22 +32,9 @@ export default function HardMode() {
         actualLocation: [Number(currentBuilding.longitude), Number(currentBuilding.latitude)]
       };
 
-      const isLastBuilding = prev.currentBuildingIndex === shuffledBuildings.length - 1;
-      
-      if (isLastBuilding) {
-        const totalScore = calculateFinalScore(newGuesses);
-        return {
-          ...prev,
-          guesses: newGuesses,
-          isComplete: true,
-          score: totalScore
-        };
-      }
-
       return {
         ...prev,
-        guesses: newGuesses,
-        currentBuildingIndex: prev.currentBuildingIndex + 1
+        guesses: newGuesses
       };
     });
   };
@@ -62,7 +49,15 @@ export default function HardMode() {
   };
 
   const handleNext = () => {
-    if (gameState.currentBuildingIndex < gameState.guesses.length) {
+    if (gameState.currentBuildingIndex >= shuffledBuildings.length - 1) {
+      // If this is the last building, calculate final score
+      setGameState(prev => ({
+        ...prev,
+        isComplete: true,
+        score: calculateFinalScore(prev.guesses)
+      }));
+    } else if (gameState.guesses[gameState.currentBuildingIndex]) {
+      // Only allow moving to next if current building has a guess
       setGameState(prev => ({
         ...prev,
         currentBuildingIndex: prev.currentBuildingIndex + 1
@@ -110,52 +105,40 @@ export default function HardMode() {
           <div className="text-center">
             <h1 className="text-xl font-bold">
               {gameState.isComplete 
-                ? "Game Complete!" 
-                : `Find ${shuffledBuildings[gameState.currentBuildingIndex]?.name}`}
+                ? `Game Complete! Final Score: ${Math.round(gameState.score!)} meters`
+                : shuffledBuildings[gameState.currentBuildingIndex]?.name}
             </h1>
-            {gameState.isComplete && (
-              <p className="text-lg">
-                Final Score: {Math.round(gameState.score!)} meters
-              </p>
-            )}
           </div>
-          <div className="w-20">
-            {/* Spacer for flex alignment */}
+          <div className="flex items-center gap-4">
+            <button
+              onClick={handlePrevious}
+              disabled={gameState.currentBuildingIndex === 0}
+              className="px-4 py-2 bg-blue-600 text-white rounded disabled:bg-gray-400"
+            >
+              Previous
+            </button>
+            <div className="text-center min-w-[60px]">
+              {gameState.currentBuildingIndex + 1} / {shuffledBuildings.length}
+            </div>
+            <button
+              onClick={handleNext}
+              disabled={!gameState.guesses[gameState.currentBuildingIndex] || gameState.isComplete}
+              className="px-4 py-2 bg-blue-600 text-white rounded disabled:bg-gray-400"
+            >
+              Next
+            </button>
           </div>
         </div>
       </div>
 
       {/* Map */}
-      <div className="flex-1 relative">
+      <div className="flex-1">
         <HardModeMap
           onMapClick={handleMapClick}
           guesses={gameState.guesses}
           showCorrectLocations={gameState.isComplete}
           currentBuildingIndex={gameState.currentBuildingIndex}
         />
-      </div>
-
-      {/* Navigation Controls */}
-      <div className="bg-white shadow-md p-4">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <button
-            onClick={handlePrevious}
-            disabled={gameState.currentBuildingIndex === 0}
-            className="px-4 py-2 bg-blue-600 text-white rounded disabled:bg-gray-400"
-          >
-            Previous
-          </button>
-          <div className="text-center">
-            {gameState.currentBuildingIndex + 1} / {shuffledBuildings.length}
-          </div>
-          <button
-            onClick={handleNext}
-            disabled={gameState.currentBuildingIndex >= gameState.guesses.length}
-            className="px-4 py-2 bg-blue-600 text-white rounded disabled:bg-gray-400"
-          >
-            Next
-          </button>
-        </div>
       </div>
     </div>
   );

@@ -33,6 +33,19 @@ export default function HardModeMap({
       maxBounds: [[-122.27, 37.86], [-122.25, 37.88]]
     });
 
+    map.current.on("style.load", () => {
+        if (map.current) {
+          const style = map.current.getStyle();
+          if (style?.layers) {
+            style.layers.forEach((layer) => {
+              if (layer.type === "symbol" || layer.id.includes('label')) {
+                map.current?.setLayoutProperty(layer.id, "visibility", "none");
+              }
+            });
+          }
+        }
+      });
+
     map.current.on('click', (e) => {
       onMapClick([e.lngLat.lng, e.lngLat.lat]);
     });
