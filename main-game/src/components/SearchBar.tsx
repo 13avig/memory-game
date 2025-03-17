@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { buildingAliases } from "../data/buildingAliases";
 
 interface SearchBarProps {
   onGuess: (buildingName: string) => boolean;
@@ -37,7 +38,7 @@ export default function SearchBar({ onGuess, onReset, correctBuildings }: Search
     if (value.trim()) {
       const normalizedGuess = value.trim().toLowerCase();
       
-      // More lenient fuzzy matching for already found buildings
+      // Check if building is already found (exact match first)
       const isAlreadyFound = correctBuildings.some(building => {
         const normalizedBuilding = building.toLowerCase();
         
@@ -46,18 +47,24 @@ export default function SearchBar({ onGuess, onReset, correctBuildings }: Search
           return true;
         }
 
+        // Check if this guess matches any alias that was previously found
+        const aliases = Object.entries(buildingAliases).find(([key]) => 
+          building.includes(key)
+        )?.[1] || [];
+        
+        if (aliases.includes(normalizedGuess)) {
+          return true;
+        }
+
         // For fuzzy matching, calculate similarity ratio
         const maxLength = Math.max(normalizedGuess.length, normalizedBuilding.length);
         const distance = levenshteinDistance(normalizedGuess, normalizedBuilding);
         const similarity = (maxLength - distance) / maxLength;
 
-        // Adjust these thresholds as needed
         return (
           normalizedGuess.length >= 3 && 
           (
-            // Higher similarity threshold for shorter strings
             (normalizedGuess.length <= 5 && similarity >= 0.7) ||
-            // Lower similarity threshold for longer strings
             (normalizedGuess.length > 5 && similarity >= 0.6)
           )
         );

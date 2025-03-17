@@ -5,6 +5,8 @@ import Scoreboard from "../components/Scoreboard";
 import BuildingList from "../components/BuildingList";
 import buildingsData from "../data/buildings.json"; // Import buildings list
 import CoverScreen from "../components/CoverScreen";
+import AuthButton from "../components/AuthButton";
+import { buildingAliases } from "../data/buildingAliases";
 
 // Add this helper function to calculate Levenshtein distance
 function levenshteinDistance(str1: string, str2: string): number {
@@ -39,74 +41,74 @@ export default function Game() {
     }
   };
 
-  type BuildingAliases = {
-    [key: string]: string[];
-  };
+  // type BuildingAliases = {
+  //   [key: string]: string[];
+  // };
   
   // Add this constant with acceptable alternative names
-  const buildingAliases: BuildingAliases = {
-    "Anthony Hall": ["anthony"],
-    "Barker Hall": ["barker"],
-    "Social Sciences Building": ["barrows", "social sciences", "socs"],
-    "Bechtel Engineering Center": ["bechtel", "engineering", "engineering center"],
-    "Birge Hall": ["birge"],
-    "Blum Hall": ["blum", "blum center"],
-    "School of Law": ["boalt", "school of law"],
-    "California Hall": ["california"],
-    "Campbell Hall": ["campbell"],
-    "Cheit Hall": ["cheit"],
-    "Chou Hall": ["chou"],
-    "Cory Hall": ["cory"],
-    "Davis Hall": ["davis"],
-    "Durant Hall": ["durant"],
-    "Dwinelle Hall": ["dwinelle"],
-    "Eshleman Hall": ["eshleman"],
-    "Etcheverry Hall": ["etcheverry"],
-    "Evans Hall": ["evans"],
-    "Genetics and Plant Biology Building": ["genetics", "plant biology", "genetics and plant biology"],
-    "Giannini Hall": ["giannini"],
-    "Giauque Hall": ["giauque"],
-    "Gilman Hall": ["gilman"],
-    "Haviland Hall": ["haviland"],
-    "Hearst Field Annex": ["hearst", "hearst annex", "hearst field"],
-    "Hearst Mining Building": ["hearst mining", "hearst memorial", "hearst memorial mining"],
-    "Hertz Hall": ["hertz"],
-    "Hesse Hall": ["hesse"],
-    "Hildebrand Hall": ["hildebrand"],
-    "Hilgard Hall": ["hilgard"],
-    "Jacobs Hall": ["jacobs"],
-    "Koshland Hall": ["koshland"],
-    "Anthropology and Art Practice Building": ["kroeber", "anthropology", "art practice", "anthropology and art practice"],
-    "Latimer Hall": ["latimer"],
-    "Physics Building": ["leconte", "physics north", "physics south", "physics"],
-    "Lewis Hall": ["lewis"],
-    "Li Ka Shing Center": ["li ka shing"],
-    "McCone Hall": ["mccone"],
-    "McLaughlin Hall": ["mclaughlin"],
-    "Minor Hall": ["minor"],
-    "Morgan Hall": ["morgan"],
-    "Morrison Hall": ["morrison"],
-    "Philosophy Hall": ["moses", "philosophy"],
-    "Mulford Hall": ["mulford"],
-    "North Gate Hall": ["north gate"],
-    "O'Brien Hall": ["o'brien"],
-    "Pimentel Hall": ["pimentel"],
-    "Goldman School of Public Policy": ["goldman", "public policy", "school of public policy"],
-    "Simon Hall": ["simon"],
-    "Soda Hall": ["soda"],
-    "South Hall": ["south"],
-    "Sproul Hall": ["sproul"],
-    "Stanley Hall": ["stanley"],
-    "Stephens Hall": ["stephens"],
-    "Sutardja Dai Hall": ["sutardja dai", "CITRIS"],
-    "Tan Hall": ["tan"],
-    "Valley Life Sciences Building": ["life sciences", "vlsb"],
-    "Warren Hall": ["warren"],
-    "Wellman Hall": ["wellman"],
-    "Wheeler Hall": ["wheeler"],
-    "Wurster Hall": ["wurster"],
-    "Zellerbach Hall": ["zellerbach"]
-  };
+  // const buildingAliases: BuildingAliases = {
+  //   "Anthony Hall": ["anthony"],
+  //   "Barker Hall": ["barker"],
+  //   "Social Sciences Building": ["barrows", "social sciences", "socs"],
+  //   "Bechtel Engineering Center": ["bechtel", "engineering", "engineering center"],
+  //   "Birge Hall": ["birge"],
+  //   "Blum Hall": ["blum", "blum center"],
+  //   "School of Law": ["boalt", "school of law"],
+  //   "California Hall": ["california"],
+  //   "Campbell Hall": ["campbell"],
+  //   "Cheit Hall": ["cheit"],
+  //   "Chou Hall": ["chou"],
+  //   "Cory Hall": ["cory"],
+  //   "Davis Hall": ["davis"],
+  //   "Durant Hall": ["durant"],
+  //   "Dwinelle Hall": ["dwinelle"],
+  //   "Eshleman Hall": ["eshleman"],
+  //   "Etcheverry Hall": ["etcheverry"],
+  //   "Evans Hall": ["evans"],
+  //   "Genetics and Plant Biology Building": ["genetics", "plant biology", "genetics and plant biology"],
+  //   "Giannini Hall": ["giannini"],
+  //   "Giauque Hall": ["giauque"],
+  //   "Gilman Hall": ["gilman"],
+  //   "Haviland Hall": ["haviland"],
+  //   "Hearst Field Annex": ["hearst", "hearst annex", "hearst field"],
+  //   "Hearst Mining Building": ["hearst mining", "hearst memorial", "hearst memorial mining"],
+  //   "Hertz Hall": ["hertz"],
+  //   "Hesse Hall": ["hesse"],
+  //   "Hildebrand Hall": ["hildebrand"],
+  //   "Hilgard Hall": ["hilgard"],
+  //   "Jacobs Hall": ["jacobs"],
+  //   "Koshland Hall": ["koshland"],
+  //   "Anthropology and Art Practice Building": ["kroeber", "anthropology", "art practice", "anthropology and art practice"],
+  //   "Latimer Hall": ["latimer"],
+  //   "Physics Building": ["leconte", "physics north", "physics south", "physics"],
+  //   "Lewis Hall": ["lewis"],
+  //   "Li Ka Shing Center": ["li ka shing"],
+  //   "McCone Hall": ["mccone"],
+  //   "McLaughlin Hall": ["mclaughlin"],
+  //   "Minor Hall": ["minor"],
+  //   "Morgan Hall": ["morgan"],
+  //   "Morrison Hall": ["morrison"],
+  //   "Philosophy Hall": ["moses", "philosophy"],
+  //   "Mulford Hall": ["mulford"],
+  //   "North Gate Hall": ["north gate"],
+  //   "O'Brien Hall": ["o'brien"],
+  //   "Pimentel Hall": ["pimentel"],
+  //   "Goldman School of Public Policy": ["goldman", "public policy", "school of public policy"],
+  //   "Simon Hall": ["simon"],
+  //   "Soda Hall": ["soda"],
+  //   "South Hall": ["south"],
+  //   "Sproul Hall": ["sproul"],
+  //   "Stanley Hall": ["stanley"],
+  //   "Stephens Hall": ["stephens"],
+  //   "Sutardja Dai Hall": ["sutardja dai", "CITRIS"],
+  //   "Tan Hall": ["tan"],
+  //   "Valley Life Sciences Building": ["life sciences", "vlsb"],
+  //   "Warren Hall": ["warren"],
+  //   "Wellman Hall": ["wellman"],
+  //   "Wheeler Hall": ["wheeler"],
+  //   "Wurster Hall": ["wurster"],
+  //   "Zellerbach Hall": ["zellerbach"]
+  // };
 
   const handleGuess = (buildingName: string) => {
     const formattedGuess = buildingName.trim().toLowerCase();
@@ -157,6 +159,11 @@ export default function Game() {
     <div className="flex flex-col lg:flex-row h-screen">
       {showCover && <CoverScreen onDismiss={() => setShowCover(false)} />}
       
+      {/* Auth button in top right corner */}
+      <div className="absolute top-6 right-4 z-30">
+        <AuthButton />
+      </div>
+      
       {/* Search bar container */}
       <div className="absolute top-4 left-0 right-0 flex justify-center items-center z-20">
         <div className="flex items-center gap-2 max-w-xl w-[90%] sm:w-[60%]">
@@ -164,6 +171,7 @@ export default function Game() {
             onGuess={handleGuess} 
             onReset={handleReset}
             correctBuildings={correctBuildings}
+            className="flex-grow" 
           />
         </div>
       </div>
