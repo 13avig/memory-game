@@ -1,0 +1,15 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Map pin base -->
+  <path d="M32 4C21.5 4 13 12.5 13 23C13 36.5 32 60 32 60C32 60 51 36.5 51 23C51 12.5 42.5 4 32 4Z" fill="#003262"/>
+  
+  <!-- Building silhouette -->
+  <path d="M32 12L25 20V48H39V20L32 12Z" fill="#FDB515"/>
+  
+  <!-- Windows -->
+  <rect x="28" y="24" width="3" height="3" fill="#003262"/>
+  <rect x="33" y="24" width="3" height="3" fill="#003262"/>
+  <rect x="28" y="30" width="3" height="3" fill="#003262"/>
+  <rect x="33" y="30" width="3" height="3" fill="#003262"/>
+  <rect x="28" y="36" width="3" height="3" fill="#003262"/>
+  <rect x="33" y="36" width="3" height="3" fill="#003262"/>
+</svg> 
