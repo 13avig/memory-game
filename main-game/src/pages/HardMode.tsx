@@ -66,13 +66,20 @@ export default function HardMode() {
   };
 
   const calculateFinalScore = (guesses: BuildingGuess[]): number => {
-    return guesses.reduce((total, guess) => {
+    const maxPossibleScore = BERKELEY_CAMPUS_RADIUS * shuffledBuildings.length;
+    const totalDistance = guesses.reduce((total, guess) => {
       const distance = calculateDistance(
         guess.guessLocation,
         guess.actualLocation
       );
       return total + Math.min(distance, BERKELEY_CAMPUS_RADIUS);
     }, 0);
+
+    // Calculate percentage (0-100%)
+    const percentage = (1 - (totalDistance / maxPossibleScore)) * 100;
+    
+    // Round to 2 decimal places and ensure score is between 0 and 100
+    return Math.max(0, Math.min(100, Math.round(percentage * 100) / 100));
   };
 
   const calculateDistance = (
@@ -105,7 +112,7 @@ export default function HardMode() {
           <div className="text-center">
             <h1 className="text-xl font-bold">
               {gameState.isComplete 
-                ? `Game Complete! Final Score: ${Math.round(gameState.score!)} meters`
+                ? `Game Complete! Score: ${gameState.score}%`
                 : shuffledBuildings[gameState.currentBuildingIndex]?.name}
             </h1>
           </div>
